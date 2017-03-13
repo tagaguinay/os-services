@@ -1,7 +1,7 @@
 kernel-extras:
   image: rancher/os-extras:${KERNEL_VERSION}${SUFFIX}
   labels:
-    io.rancher.os.detach: false
+    io.rancher.os.detach: "false"
     io.rancher.os.after: network
     io.rancher.os.scope: system
   volumes:
