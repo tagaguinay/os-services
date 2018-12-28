@@ -18,7 +18,7 @@ services:
 - volume-nfs
 - modem-manager
 - zerotier
-- authorized-keys
+- busydash
 consoles:
 - alpine
 - centos
