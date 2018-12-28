@@ -1,4 +1,4 @@
-gitlab:
+gitlab-ce:
    image: 'gitlab/gitlab-ce:latest'
    restart: always
    hostname: 'git.a.done.ph'
