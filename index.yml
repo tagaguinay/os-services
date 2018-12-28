@@ -19,7 +19,7 @@ services:
 - modem-manager
 - zerotier
 - busydash
-- gitlab-ce
+- gitlab
 consoles:
 - alpine
 - centos
