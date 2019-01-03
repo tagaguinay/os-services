@@ -2,6 +2,8 @@ busydash:
   image:  husseingalal/busydash
   labels:
     io.rancher.os.scope: system
+  ports:
+    - 8000:80
   volumes:
     - /proc:/host/proc:ro
     - /sys:/host/sys:ro
