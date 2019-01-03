@@ -1,5 +1,5 @@
---
-addons:
+---
+d1-addons:
   image: 'gcr.io/dayone-207203/odoo/pap_addons:0.5'
   volumes:
     - '/srv/odoo/addons:/addons'
