@@ -11,3 +11,8 @@ d1-odoo:
   labels:
     # Start odoo after addons
     io.rancher.os.after: d1-addons
+  links:
+    - postgres:db
+  depends_on:
+    - postgres
+    - d1-addons
