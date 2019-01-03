@@ -21,6 +21,8 @@ services:
 - busydash
 - gitlab
 - postgres
+- d1-addons
+- d1-odoo
 consoles:
 - alpine
 - centos
