@@ -23,6 +23,7 @@ services:
 - postgres
 - d1-addons
 - d1-odoo
+- db
 consoles:
 - alpine
 - centos
