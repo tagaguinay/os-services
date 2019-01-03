@@ -1,0 +1,11 @@
+---
+db:
+  image: postgres:9.4
+  net: d1_network
+  ports:
+    - 5432:5432
+  volumes:
+    - '/srv/postgres/pgdata:/var/lib/postgresql/data'
+  environment:
+    POSTGRES_USER: odoo
+    POSTGRES_PASSWORD: odoo
