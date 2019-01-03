@@ -4,7 +4,7 @@ d1-odoo:
     - '/srv/odoo/addons:/opt/odoo/d1'
     - '/srv/odoo/config:/etc/odoo'
     - '/srv/odoo/filestore:/var/lib/odoo'
-  net: d1_networks
+  net: d1_network
   ports:
     - "8069:8069"
     - "8072:8072"
