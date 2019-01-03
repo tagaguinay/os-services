@@ -1,4 +1,3 @@
----
 d1-odoo:
   image: 'gcr.io/dayone-207203/odoo/odoo:dev-pap'
   volumes:
