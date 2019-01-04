@@ -9,3 +9,7 @@ postgres:
   environment:
     POSTGRES_USER: odoo
     POSTGRES_PASSWORD: odoo
+  networks:
+    d1_network:
+      aliases:
+        - db
