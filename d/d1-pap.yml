@@ -20,25 +20,10 @@ d1-pap:
     - "8072:8072"
   labels:
     - "io.rancher.os.after=pap-addons"
-    - "traefik.network=web"
     - "traefik.frontend.rule=Host:ros.a.done.ph"
     - "traefik.docker.network=web"
     - "traefik.enable=true"
-    - "traefik.frontend.rule=Host:app.my-awesome-app.org"
-    - "traefik.port=8069"
-db:
-  image: postgres:9.4
-  restart: always
-  networks:
-    - web
-    - default
-  ports:
-    - 5432:5432
-  volumes:
-    - '/srv/postgres/pgdata:/var/lib/postgresql/data'
-  environment:
-    POSTGRES_USER: odoo
-    POSTGRES_PASSWORD: odoo    
+    - "traefik.backend.port=8069"
     
 pap-addons:
   image: 'gcr.io/dayone-207203/odoo/pap_addons:0.5'
