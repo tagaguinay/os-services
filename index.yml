@@ -25,6 +25,7 @@ services:
 - d1-odoo
 - db
 - reverse-proxy
+- whoami
 consoles:
 - alpine
 - centos
