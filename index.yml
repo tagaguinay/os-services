@@ -27,6 +27,7 @@ services:
 - reverse-proxy
 - whoami
 - traefik
+- d1-pap
 consoles:
 - alpine
 - centos
