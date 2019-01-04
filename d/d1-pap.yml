@@ -10,8 +10,7 @@ d1-pap:
     - pap-addons
   restart: always
   networks:
-    - web
-    - default
+    - d1_network
   #expose:
   #  - "8069"
   ports:
@@ -20,7 +19,7 @@ d1-pap:
   labels:
     - "io.rancher.os.after=pap-addons"
     - "traefik.frontend.rule=Host:ros.a.done.ph"
-    - "traefik.docker.network=web"
+    - "traefik.docker.network=d1_network"
     - "traefik.enable=true"
     - "traefik.backend.port=8069"
     
