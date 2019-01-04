@@ -20,7 +20,7 @@ d1-pap:
     - "traefik.frontend.rule=Host:${ODOO_URL}"
     - "traefik.docker.network=d1_network"
     - "traefik.enable=true"
-    - "traefik.protocol=https"
+    - "traefik.protocol=http"
     - "traefik.port=8069"
     
 pap-addons:
