@@ -1,8 +1,11 @@
 reverse-proxy:
   image: traefik # The official Traefik docker image
-  #labels:
-  #  io.rancher.os.scope: user
   command: --api --docker # Enables the web UI and tells Traefik to listen to docker
+  privileged: false
+  labels:
+    io.rancher.os.scope: user
+    io.rancher.os.after: docker
+  restart: unless-stopped
   ports:
     - "80:80"     # The HTTP port
     - "8080:8080" # The Web UI (enabled by --api)
