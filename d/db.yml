@@ -10,8 +10,7 @@ db:
     POSTGRES_PASSWORD: odoo
     
   networks:
-    web:
+    d1_network:
       aliases:
         - postgres
         - database
-    default:
