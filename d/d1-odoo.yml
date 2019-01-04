@@ -11,6 +11,11 @@ d1-odoo:
   labels:
     # Start odoo after addons
     io.rancher.os.after: d1-addons
+    "traefik.network: d1_network"
+    "traefik.port: '8069'"
+    "traefik.frontend.rule=Host:${ODOO_URL}"
   depends_on:
     - postgres
     - d1-addons
+networks:
+  d1_network:
