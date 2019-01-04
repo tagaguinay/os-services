@@ -17,7 +17,7 @@ d1-pap:
     - "8072:8072"
   labels:
     - "io.rancher.os.after=pap-addons"
-    - "traefik.frontend.rule=Host:ros.a.done.ph"
+    - "traefik.frontend.rule=Host:${ODOO_URL}"
     - "traefik.docker.network=d1_network"
     - "traefik.enable=true"
     - "traefik.protocol=https"
