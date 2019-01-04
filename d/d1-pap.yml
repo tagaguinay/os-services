@@ -19,7 +19,7 @@ d1-pap:
     - "8069:8069"
     - "8072:8072"
   labels:
-  #  - "io.rancher.os.after=pap-addons"
+    - "io.rancher.os.after=pap-addons"
     - "traefik.network=web"
     - "traefik.frontend.rule=Host:ros.a.done.ph"
     - "traefik.docker.network=web"
@@ -45,4 +45,6 @@ pap-addons:
   volumes:
     - '/srv/odoo/addons:/addons'
     - '/srv/odoo/config:/config'
+  labels:
+    - "io.rancher.os.before=d1-pap"
       
