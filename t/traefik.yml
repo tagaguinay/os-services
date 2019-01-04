@@ -7,7 +7,7 @@ traefik:
     - 443:443
     - 8080:8080
   networks:
-    - web
+    - d1_network
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /opt/traefik/traefik.toml:/traefik.toml
