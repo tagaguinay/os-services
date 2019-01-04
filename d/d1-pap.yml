@@ -5,7 +5,6 @@ d1-pap:
     - '/srv/odoo/config:/etc/odoo'
     - '/srv/odoo/filestore:/var/lib/odoo'
   depends_on:
-    - db
     - pap-addons
   volumes_from:
     - pap-addons
