@@ -5,7 +5,7 @@ d1-pap:
     - '/srv/odoo/config:/etc/odoo'
     - '/srv/odoo/filestore:/var/lib/odoo'
   depends_on:
-    - db:
+    - db
     - pap-addons
   restart: always
   networks:
