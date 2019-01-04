@@ -17,5 +17,3 @@ d1-odoo:
   depends_on:
     - postgres
     - d1-addons
-networks:
-  d1_network:
