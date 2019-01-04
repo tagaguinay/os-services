@@ -1,7 +1,7 @@
 ---
 db:
   image: postgres:9.4
-  net: d1_network
+  net: web
   ports:
     - 5432:5432
   volumes:
@@ -11,7 +11,7 @@ db:
     POSTGRES_PASSWORD: odoo
     
   networks:
-    d1_network:
+    web:
       aliases:
         - postgres
         - database
