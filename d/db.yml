@@ -1,7 +1,6 @@
 ---
 db:
   image: postgres:9.4
-  net: web
   ports:
     - 5432:5432
   volumes:
@@ -15,3 +14,4 @@ db:
       aliases:
         - postgres
         - database
+    default:
