@@ -9,8 +9,7 @@ d1-pap:
   volumes_from:
     - pap-addons
   restart: always
-  networks:
-    - d1_network
+  net: d1_network
   #expose:
   #  - "8069"
   ports:
