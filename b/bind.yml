@@ -1,6 +1,13 @@
 bind:
   restart: always
   image: sameersbn/bind:9.11.3-20180713
+  labels:
+    io.rancher.os.scope: system
+  cap_add:
+    - NET_ADMIN
+    - SYS_ADMIN
+  volumes_from:
+    - system-volumes
   ports:
   - "53:53/udp"
   - "53:53/tcp"
