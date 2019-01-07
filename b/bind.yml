@@ -1,6 +1,7 @@
 bind:
   restart: always
   image: sameersbn/bind:9.11.3-20180713
+  net: host
   labels:
     io.rancher.os.scope: system
   cap_add:
