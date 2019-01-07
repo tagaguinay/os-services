@@ -29,6 +29,7 @@ services:
 - traefik
 - d1-pap
 - waagent
+- bind
 consoles:
 - alpine
 - centos
