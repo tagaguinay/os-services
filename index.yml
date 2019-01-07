@@ -28,6 +28,7 @@ services:
 - whoami
 - traefik
 - d1-pap
+- waagent
 consoles:
 - alpine
 - centos
@@ -51,3 +52,4 @@ engines:
 - docker-18.03.1-ce
 - docker-18.06.0-ce
 - docker-18.06.1-ce
+- docker-18.09.0
