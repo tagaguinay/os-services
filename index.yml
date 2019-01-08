@@ -18,7 +18,7 @@ services:
 - volume-nfs
 - modem-manager
 - zerotier
-- zerotier_arm64v8
+- zerotier_arm64
 - busydash
 - gitlab
 - postgres
