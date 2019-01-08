@@ -1,5 +1,6 @@
 zerotier:
-  image: zerotier/zerotier-containerized:1.2.4
+  #image: zerotier/zerotier-containerized:1.2.4
+  image: bltavares/zerotier
   labels:
     io.rancher.os.scope: system
   volumes:
