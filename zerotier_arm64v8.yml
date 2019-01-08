@@ -1,0 +1,28 @@
+zerotier:
+  #image: zerotier/zerotier-containerized:1.2.4
+  image: bltavares/zerotier:arm64v8
+  labels:
+    io.rancher.os.scope: system
+  volumes:
+    - /var/lib/zerotier-one:/var/lib/zerotier-one
+  restart: always
+  net: host
+  devices:
+    - /dev/net/tun:/dev/net/tun
+  cap_add:
+    - NET_ADMIN
+    - SYS_ADMIN
+  volumes_from:
+    - system-volumes
+zerotier-join:
+  #image: zerotier/zerotier-containerized:1.2.4
+  image: bltavares/zerotier:arm64v8
+  labels:
+    io.rancher.os.scope: system
+  volumes:
+    - /var/lib/zerotier-one:/var/lib/zerotier-one
+  restart: on-failure
+  net: host
+  entrypoint: /zerotier-cli join 88503383909b7953
+  depends_on:
+    - zerotier
