@@ -1,4 +1,4 @@
-zerotier:
+zerotier-pi:
   #image: zerotier/zerotier-containerized:1.2.4
   image: bltavares/zerotier:arm64v8
   labels:
