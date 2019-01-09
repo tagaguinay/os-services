@@ -5,6 +5,9 @@ rancher:
   repositories:
     core:
       url: https://raw.githubusercontent.com/tagaguinay/os-services/master
+  services_include:
+    db: true
+    d1-pap: true
   services:
     zerotier:
       image: zerotier/zerotier-containerized:1.2.4
