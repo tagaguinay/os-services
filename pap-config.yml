@@ -1,0 +1,40 @@
+#cloud-config
+environment:
+  ODOO_URL: pap.zt.done.ph
+rancher:
+  repositories:
+    core:
+      url: https://raw.githubusercontent.com/tagaguinay/os-services/master
+  services:
+    zerotier:
+      image: zerotier/zerotier-containerized:1.2.4
+      labels:
+        io.rancher.os.scope: system
+      volumes:
+        - /var/lib/zerotier-one:/var/lib/zerotier-one
+      restart: always
+      net: host
+      devices:
+        - /dev/net/tun:/dev/net/tun
+      cap_add:
+        - NET_ADMIN
+        - SYS_ADMIN
+      volumes_from:
+        - system-volumes
+    zerotier-join:
+      image: zerotier/zerotier-containerized:1.2.4
+      labels:
+        io.rancher.os.scope: system
+      volumes:
+        - /var/lib/zerotier-one:/var/lib/zerotier-one
+      restart: on-failure
+      net: host
+      entrypoint: /zerotier-cli join 88503383909b7953
+      depends_on:
+        - zerotier
+
+ssh_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGUtNLl92xXTlVfqc5aqT94bgT/BGENKH9xyhIR4Md1UjIEcTc3ja2CgIbXYzMT6DdWYTlzZlcd4eiJYsDk3xstuovAD0OLQp/pDOsrqd5PtiTXFKzCLkXItL9/X3dMX436cyXVfwyqdqy6rvSALxEC9zMUgFwm/c6EBxC36U51IoSSIFQXmd9IdFtt9oeileZxilYEFryTXvJhUikeVgbJQ5FAJeQohJ3LF0jH5fUwnBQdLyuMgUJ0TuTJnMf4Ga+8oGLCYxkjPg9lWyTCV4ktyA29oXnRZRNjxv3Uw0QVryVkGyjdnt3JUKTmXEPEvkWsNynpKvuXQ2PMUUsvpfj imported-openssh-key
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC76AyO/sTBXkTGquaNmDElVDoneMsaPhO8bXu4j47swECIPZ1m0AXXlcMmeewhQQpmq26OkPZcd+jScnfNUmbYMFqTep4ROjjFoXAziuW9pdUZ38ndhF466MQ2evhez5t6Geb3C8OljOwmYDBalYdfwP7QiLcWNh1Il4viEE7Y+MYQdBIlddk+iNpMT8OrbqJ4pSxxAa06PtIDk9GVIq74IfFoYmRjx9OKMPzFH0GkwLoCG6ew0yrTJWWls6pP5RYwcjEBqE9jYXpjr24Epvo/ZdeE+CI8tmGjOncyNP2Ap002kKeBIxveMsX1nv3ydFn7AD4DgaPzxLuocRJb+Gin rene@rsiodoo
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8YHi4wi2V8WmEUFbj6ApH0DRxlJw0Uy8FhQX/OS2RlZ3CjS448mWgMN3//EPJR3XVlQ9ZdTgdlHjEoZ35ZZxwfbuYrji5GSZmMFHr93N8jd9BEGziR6uvBAU0l+rnLLhmpfDrSYiWHQM04HR7ico8x94RkD5rK9HumpM65D+Djxmwh09uJpY8Hs9Qo4PP9Wl80n/WHjfT+n0hdJhvy2J9Utmg+NgHUT1gVy9j9G2i0MuistW64V/VVPprp5huxrnSfZp9kY3WYU+agPWH1kBZZAy2a7PW34eSvRoSEfH+WRjaCAxtKw31HuQlrQ9UCp+mBBSsZd6hUcevyK896RRz done@l1.done.ph
+
