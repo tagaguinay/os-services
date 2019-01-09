@@ -1,6 +1,6 @@
-zerotier:
+zerotier-pi:
   #image: zerotier/zerotier-containerized:1.2.4
-  image: bltavares/zerotier
+  image: bltavares/zerotier:arm64v8
   labels:
     io.rancher.os.scope: system
   volumes:
@@ -16,7 +16,7 @@ zerotier:
     - system-volumes
 zerotier-join:
   #image: zerotier/zerotier-containerized:1.2.4
-  image: bltavares/zerotier
+  image: bltavares/zerotier:arm64v8
   labels:
     io.rancher.os.scope: system
   volumes:

@@ -18,6 +18,7 @@ services:
 - volume-nfs
 - modem-manager
 - zerotier
+- zerotier-pi
 - busydash
 - gitlab
 - postgres
@@ -29,6 +30,7 @@ services:
 - traefik
 - d1-pap
 - waagent
+- bind
 consoles:
 - alpine
 - centos
