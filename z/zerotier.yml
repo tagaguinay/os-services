@@ -23,6 +23,6 @@ zerotier-join:
     - /var/lib/zerotier-one:/var/lib/zerotier-one
   restart: on-failure
   net: host
-  entrypoint: /zerotier-cli join 88503383909b7953
+  entrypoint: /zerotier-cli join ${ZEROTIER_NETWORK}
   depends_on:
     - zerotier
