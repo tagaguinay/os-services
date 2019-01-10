@@ -1,6 +1,7 @@
 #cloud-config
+hostname: pap
 environment:
-  ODOO_URL: pap.zt.done.ph
+  ODOO_DOMAIN: zt.done.ph
 rancher:
   repositories:
     core:
