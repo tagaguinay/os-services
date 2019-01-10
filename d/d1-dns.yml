@@ -17,5 +17,3 @@ d1-dns:
     - SYS_ADMIN
   volumes:
     - /srv/d1-dns:/var/cache/bind
-  volumes_from:
-    - system-volumes
