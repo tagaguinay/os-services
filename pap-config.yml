@@ -1,7 +1,9 @@
 #cloud-config
 hostname: pap
 environment:
+  ODOO_HOSTNAME: pap
   ODOO_DOMAIN: zt.done.ph
+  ZEROTIER_NETWORK: 88503383909b7953
 rancher:
   repositories:
     core:
