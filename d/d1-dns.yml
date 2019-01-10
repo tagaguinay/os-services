@@ -15,5 +15,7 @@ d1-dns:
   cap_add:
     - NET_ADMIN
     - SYS_ADMIN
+  volumes:
+    - /srv/d1-dns:/var/cache/bind
   volumes_from:
     - system-volumes
