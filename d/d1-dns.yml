@@ -16,4 +16,4 @@ d1-dns:
     - NET_ADMIN
     - SYS_ADMIN
   volumes:
-    - /srv/d1-dns:/var/cache/bind
+    - /opt/d1-dns:/var/cache/bind
