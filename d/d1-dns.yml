@@ -1,4 +1,4 @@
-ddns:
+d1-dns:
   image: davd/docker-ddns:latest
   restart: always
   environment:
