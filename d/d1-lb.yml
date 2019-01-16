@@ -1,0 +1,14 @@
+traefik:
+  image: traefik
+  restart: always
+  command: --api --docker
+  net: d1_network
+  ports:
+    - 80:80
+    - 443:443
+    - 8000:8080
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /srv/traefik/traefik.toml:/traefik.toml
+    - /srv/traefik/acme.json:/acme.json
+  container_name: traefik
