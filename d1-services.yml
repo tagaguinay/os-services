@@ -1,0 +1,19 @@
+services:
+- zerotier
+- zerotier-pi
+- busydash
+- gitlab
+- postgres
+- d1-addons
+- d1-odoo
+- db
+- reverse-proxy
+- whoami
+- traefik
+- d1-pap
+- bind
+- d1-dns
+consoles:
+- d1os
+engines:
+- docker-18.09.0
