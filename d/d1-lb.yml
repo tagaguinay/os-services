@@ -1,4 +1,4 @@
-traefik:
+d1-lb:
   image: traefik
   restart: always
   command: --api --docker
