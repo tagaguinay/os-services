@@ -1,0 +1,19 @@
+d1-ztdns:
+  image: davd/docker-ddns:latest
+  restart: always
+  environment:
+    RECORD_TTL: 60
+    ZONE: z.done.ph
+    SHARED_SECRET: dayonedns
+  ports:
+    - "53:53"
+    - "53:53/udp"
+    - "8053:8080"
+  labels:
+    io.rancher.os.scope: system
+  net: host
+  cap_add:
+    - NET_ADMIN
+    - SYS_ADMIN
+  volumes:
+    - /opt/d1-dns:/var/cache/bind
