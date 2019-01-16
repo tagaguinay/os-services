@@ -9,6 +9,6 @@ d1-lb:
     - 8000:8080
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
-    - /srv/traefik/traefik.toml:/traefik.toml
-    - /srv/traefik/acme.json:/acme.json
-  container_name: traefik
+    - /opt/d1-lb/traefik.toml:/traefik.toml
+    - /opt/d1-lb/acme.json:/acme.json
+  container_name: d1-lb
