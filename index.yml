@@ -32,6 +32,8 @@ services:
 - waagent
 - bind
 - d1-dns
+- d1-ztdns
+- d1-lb
 consoles:
 - alpine
 - centos
