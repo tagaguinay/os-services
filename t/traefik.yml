@@ -3,6 +3,8 @@ traefik:
   restart: always
   command: --api --docker
   net: d1_network
+  expose:
+    - 8081
   ports:
     - 80:80
     - 443:443
