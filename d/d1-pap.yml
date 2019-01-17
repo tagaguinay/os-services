@@ -10,10 +10,10 @@ d1-pap:
     - pap-addons
   restart: always
   net: d1_network
-  expose:
-    - "8069"
-  #ports:
-  #  - "8069:8069"
+  #expose:
+  #  - "8069"
+  ports:
+    - "8069:8069"
   #  - "8072:8072"
   labels:
     - "io.rancher.os.after=pap-addons"
