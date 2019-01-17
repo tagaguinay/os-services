@@ -4,6 +4,7 @@ rancher-server:
   labels:
     io.rancher.os.scope: user
     io.rancher.os.after: docker
+    traefik.enable: false
   restart: unless-stopped
   ports:
     - 8080:8080
