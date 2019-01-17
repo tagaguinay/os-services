@@ -18,4 +18,5 @@ traefik:
     - /srv/traefik/acme.json:/acme.json
     - /srv/traefik/cert.pem:/cert.pem
     - /srv/traefik/privkey.pem:/privkey.pem
+    - /srv/traefik/rules:/rules
   container_name: traefik
