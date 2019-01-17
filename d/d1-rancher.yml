@@ -1,4 +1,4 @@
-rancher-server:
+d1-rancher:
   image: ${REGISTRY_DOMAIN}/rancher/server:latest
   privileged: false
   labels:
