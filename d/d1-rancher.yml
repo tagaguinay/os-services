@@ -5,7 +5,7 @@ d1-rancher:
     io.rancher.os.scope: user
     io.rancher.os.after: traefik
     traefik.enable: true
-    traefik.frontend.rule" "Host:rancher.${ODOO_DOMAIN}"
+    traefik.frontend.rule: "Host:rancher.${ODOO_DOMAIN}"
     traefik.port: 8080
   restart: unless-stopped
   expose:
