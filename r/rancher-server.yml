@@ -3,8 +3,10 @@ rancher-server:
   privileged: false
   labels:
     io.rancher.os.scope: user
-    io.rancher.os.after: docker
-    traefik.enable: false
+    io.rancher.os.after: traefik
+    traefik.enable: true
+    traefik.frontend.rule" "Host:rancher.${ODOO_DOMAIN}"
+    traefik.port: 8080
   restart: unless-stopped
-  ports:
-    - 8080:8080
+  expose:
+    - 8080
