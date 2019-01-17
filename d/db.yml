@@ -9,3 +9,5 @@ db:
     POSTGRES_USER: odoo
     POSTGRES_PASSWORD: odoo
   net: d1_network
+  labels:
+    - "traefik.enable=false"
