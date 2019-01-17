@@ -30,4 +30,5 @@ pap-addons:
     - '/srv/odoo/config:/config'
   labels:
     - "io.rancher.os.before=d1-pap"
+    - "io.rancher.os.after=db"
       
