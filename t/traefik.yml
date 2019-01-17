@@ -4,14 +4,14 @@ traefik:
   command: --api --docker
   net: d1_network
   expose:
-    - 8081
+    - 8080
   ports:
     - 80:80
     - 443:443
   labels:
     - "io.rancher.os.before=d1-pap"
     - "traefik.frontend.rule=Host:traefik.${ODOO_DOMAIN}"
-    - "traefik.port=8081"
+    - "traefik.port=8080"
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /srv/traefik/traefik.toml:/traefik.toml
