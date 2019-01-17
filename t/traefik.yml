@@ -9,7 +9,7 @@ traefik:
   labels:
     - "io.rancher.os.before=d1-pap"
     - "traefik.frontend.rule=Host:traefik.${ODOO_DOMAIN}"
-    - "traefik.port=8080"
+    - "traefik.port=8081"
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /srv/traefik/traefik.toml:/traefik.toml
