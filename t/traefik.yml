@@ -16,7 +16,6 @@ traefik:
     - /var/run/docker.sock:/var/run/docker.sock
     - /srv/traefik/traefik.toml:/traefik.toml
     - /srv/traefik/acme.json:/acme.json
-    - /srv/traefik/cert.pem:/cert.pem
-    - /srv/traefik/privkey.pem:/privkey.pem
+    - /srv/traefik/keys:/keys
     - /srv/traefik/rules:/rules
   container_name: traefik
