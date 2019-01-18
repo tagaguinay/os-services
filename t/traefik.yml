@@ -12,10 +12,12 @@ traefik:
     - "io.rancher.os.before=d1-pap"
     - "traefik.frontend.rule=Host:traefik.${ODOO_DOMAIN}"
     - "traefik.port=8080"
+  volumes_from: 
+    - user-volumes
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
-    - /srv/traefik/traefik.toml:/traefik.toml
-    - /srv/traefik/acme.json:/acme.json
-    - /srv/traefik/keys:/keys
-    - /srv/traefik/rules:/rules
+    - /opt/traefik/traefik.toml:/traefik.toml
+    - /opt/traefik/acme.json:/acme.json
+    - /opt/traefik/keys:/keys
+    - /opt/traefik/rules:/rules
   container_name: traefik
