@@ -6,8 +6,11 @@ d1-rancher:
     io.rancher.os.after: traefik
     traefik.enable: true
     traefik.frontend.rule: "Host:rancher.${ODOO_DOMAIN}"
+    traefik.protocol: http
     traefik.port: 8080
   restart: unless-stopped
-  expose:
-    - 8080
+  #expose:
+  #  - 8080
+  ports:
+    - 8080:8080
   net: d1_network
