@@ -9,12 +9,12 @@ traefik:
     - 80:80
     - 443:443
   labels:
-    - "io.rancher.os.scope=system"
+  #  - "io.rancher.os.scope=system"
     - "io.rancher.os.before=d1-pap"
     - "traefik.frontend.rule=Host:traefik.${ODOO_DOMAIN}"
     - "traefik.port=8080"
-  volumes_from:
-    - system-volumes
+  #volumes_from:
+  #  - system-volumes
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /opt/traefik/traefik.toml:/traefik.toml
