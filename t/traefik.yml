@@ -12,6 +12,7 @@ traefik:
   #  - "io.rancher.os.scope=system"
   #  - "io.rancher.os.before=d1-pap"
     - "traefik.frontend.rule=Host:traefik.${ODOO_DOMAIN}"
+    - "traefik.docker.network=d1_network"
     - "traefik.port=8080"
   #volumes_from:
   #  - system-volumes
