@@ -1,0 +1,12 @@
+d1-ztncui:
+  image: keynetworks/ztncui
+  restart: always
+  ports:
+    - "3443:3443"
+  labels:
+    io.rancher.os.scope: system
+  net: host
+  cap_add:
+    - NET_ADMIN
+  volumes_from:
+    - system-volumes
