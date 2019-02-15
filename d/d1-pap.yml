@@ -1,5 +1,5 @@
 d1-pap:
-  image: 'gcr.io/dayone-207203/odoo/odoo:dev-pap'
+  image: 'gcr.io/dayone-207203/odoo/odoo:1.47'
   volumes:
     - '/srv/odoo/addons:/opt/odoo/d1'
     - '/srv/odoo/config:/etc/odoo'
@@ -24,7 +24,7 @@ d1-pap:
     - "traefik.port=8069"
     
 pap-addons:
-  image: 'gcr.io/dayone-207203/odoo/pap_addons:0.5'
+  image: 'gcr.io/dayone-207203/odoo/pap_addons:0.7'
   volumes:
     - '/srv/odoo/addons:/addons'
     - '/srv/odoo/config:/config'
