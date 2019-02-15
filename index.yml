@@ -35,6 +35,7 @@ services:
 - d1-ztdns
 - d1-lb
 - d1-rancher
+- d1-ztncui
 consoles:
 - alpine
 - centos
@@ -42,20 +43,5 @@ consoles:
 - fedora
 - ubuntu
 engines:
-- docker-1.12.6
-- docker-1.13.1
-- docker-17.03.1-ce
-- docker-17.03.2-ce
-- docker-17.04.0-ce
-- docker-17.05.0-ce
-- docker-17.06.1-ce
-- docker-17.06.2-ce
-- docker-17.09.0-ce
-- docker-17.09.1-ce
-- docker-17.12.0-ce
-- docker-17.12.1-ce
-- docker-18.03.0-ce
-- docker-18.03.1-ce
-- docker-18.06.0-ce
 - docker-18.06.1-ce
 - docker-18.09.0
