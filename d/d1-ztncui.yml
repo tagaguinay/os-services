@@ -1,6 +1,8 @@
 d1-ztncui:
   image: keynetworks/ztncui
   restart: always
+  environment:
+    ZEROTIER_NETWORK: 8850338390b64e66
   ports:
     - "3443:3443"
   labels:
