@@ -26,8 +26,8 @@ d1-pap:
 pap-addons:
   image: 'gcr.io/dayone-207203/odoo/pap_addons:0.7'
   volumes:
-    - '/srv/odoo/addons:/addons'
-    - '/srv/odoo/config:/config'
+    - '/opt/odoo/addons:/addons'
+    - '/opt/odoo/config:/config'
   labels:
     - "io.rancher.os.before=d1-pap"
     - "io.rancher.os.after=db"
