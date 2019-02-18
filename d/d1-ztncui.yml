@@ -11,5 +11,4 @@ d1-ztncui:
   cap_add:
     - NET_ADMIN
   volumes:
-    - /opt/d1-ztncui:/opt/key-networks/ztncui/etc/
     - /opt/d1-ztncui/ztone:/var/lib/zerotier-one/
