@@ -10,5 +10,6 @@ d1-ztncui:
   net: host
   cap_add:
     - NET_ADMIN
+    - SYS_ADMIN
   volumes:
     - /opt/d1-ztncui/ztone:/var/lib/zerotier-one/
