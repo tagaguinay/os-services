@@ -35,7 +35,7 @@ services:
 - d1-ztdns
 - d1-lb
 - d1-rancher
-- d1-ztncui
+- d1-ztweb
 consoles:
 - alpine
 - centos
