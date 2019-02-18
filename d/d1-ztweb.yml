@@ -1,4 +1,4 @@
-d1-ztncui:
+d1-ztweb:
   image: keynetworks/ztncui
   restart: always
   environment:
