@@ -1,37 +1,35 @@
-services:
-  guacd:
-    image: "guacamole/guacd"
-    container_name: guacd
-    hostname: guacd
-    restart: always
-    volumes:
-      - "/data/shared/guacamole/guacd/data:/data"
-      - "/data/shared/guacamole/guacd/conf:/conf:ro"
-    expose:
-      - "4822"
-    ports:
-      - "4822:4822"
-    network_mode: bridge
+init-guacamole-db:
+  image: guacamole/guacamole:latest
+  command: ["/bin/sh", "-c", "test -e /init/initdb.sql && echo 'init file already exists' || /opt/guacamole/bin/initdb.sh --postgres > /init/initdb.sql" ]
+  volumes:
+    - dbinit:/init    
 
-  guacamole:
-    image: "guacamole/guacamole"
-    container_name: guacamole
-    hostname: guacamole
-    restart: always
-    volumes:
-      - "/data/shared/guacamole/guacamole/guac-home:/data"
-      - "/data/shared/guacamole/guacamole/conf:/conf:ro"
-    expose:
-      - "8080"
-    ports:
-      - "8084:8080"
-    network_mode: bridge
-    environment:
-      - "GUACD_HOSTNAME=ub.kar.int"
-      - "GUACD_PORT=4822"
-      - "MYSQL_HOSTNAME=192.168.1.106"
-      - "MYSQL_PORT=3306"
-      - "MYSQL_DATABASE=guacamole"
-      - "MYSQL_USER=guac"
-      - "MYSQL_PASSWORD=password"
-      - "GUACAMOLE_HOME=/data"
+postgres:
+  image: postgres:latest
+  restart: unless-stopped
+  volumes:
+    - dbinit:/docker-entrypoint-initdb.d        
+    - dbdata:/var/lib/postgresql/data
+  environment:
+    POSTGRES_USER: ${POSTGRES_USER:-guacdb}
+    POSTGRES_PASSWORD: 
+  depends_on:
+    - init-guacamole-db
+guacd:
+  image: guacamole/guacd:latest
+  restart: unless-stopped
+
+guac:
+  image: guacamole/guacamole:latest
+  restart: unless-stopped
+  ports:
+    - "8080:8080"
+  environment:
+    GUACD_HOSTNAME: guacd
+    POSTGRES_HOSTNAME: postgres
+    POSTGRES_DATABASE: ${POSTGRES_USER:-guacdb}
+    POSTGRES_USER: ${POSTGRES_USER:-guacdb}
+    POSTGRES_PASSWORD:
+  depends_on:
+    - postgres
+    - guacd
