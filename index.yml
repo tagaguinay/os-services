@@ -11,6 +11,7 @@ services:
 - hyperv-vm-tools
 - qemu-guest-agent
 - rancher-server
+- rancher-server2
 - rancher-server-stable
 - amazon-metadata
 - volume-cifs
