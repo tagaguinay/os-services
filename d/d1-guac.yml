@@ -15,6 +15,7 @@ postgres:
     POSTGRES_PASSWORD: 
   depends_on:
     - init-guacamole-db
+    
 guacd:
   image: guacamole/guacd:latest
   restart: unless-stopped
