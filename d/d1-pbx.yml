@@ -76,8 +76,6 @@ pbx-db:
 freepbx-db-backup:
   container_name: pbx-db-backup
   image: tiredofit/db-backup
-  links:
-   - pbx-db
   volumes:
     - /opt/pbx/dbbackup:/backup
   environment:
