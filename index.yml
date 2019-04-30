@@ -38,6 +38,7 @@ services:
 - d1-rancher
 - d1-ztweb
 - d1-pbx
+- d1-mydb
 consoles:
 - alpine
 - centos
