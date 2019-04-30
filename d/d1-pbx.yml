@@ -1,7 +1,9 @@
 d1-pbx:
   container_name: pbx-app
   image: tiredofit/freepbx
-  links: pbx-db
+  depends_on:
+    - pbx-db
+  net: pbx-net
   ports:
    #### If you aren't using a reverse proxy
     - 80:80
@@ -53,7 +55,7 @@ d1-pbx:
   restart: always
   #networks:
   #  - proxy-tier
-  net: host
+  net: pbx-net
   ### These final lines are for Fail2ban. If you don't want, comment and also add ENABLE_FAIL2BAN=FALSE to your environment
   cap_add:
     - NET_ADMIN
@@ -69,7 +71,7 @@ pbx-db:
     - MYSQL_DATABASE=asterisk
     - MYSQL_USER=asterisk
     - MYSQL_PASSWORD=asteriskpass
-  net: host
+  net: pbx-net
   
 freepbx-db-backup:
   container_name: pbx-db-backup
@@ -90,5 +92,5 @@ freepbx-db-backup:
     - DB_CLEANUP_TIME=8640
     - COMPRESSION=BZ
     - MD5=TRUE
-  net: host
+  net: pbx-net
   restart: always
