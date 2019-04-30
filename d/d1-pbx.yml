@@ -1,6 +1,7 @@
 d1-pbx:
   container_name: pbx-app
   image: tiredofit/freepbx
+  links: pbx-db
   ports:
    #### If you aren't using a reverse proxy
     - 80:80
