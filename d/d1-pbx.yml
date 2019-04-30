@@ -1,9 +1,9 @@
 d1-pbx:
-  container_name: freepbx-app
+  container_name: pbx-app
   image: tiredofit/freepbx
   ports:
    #### If you aren't using a reverse proxy
-   #- 80:80
+    - 80:80
    #### If you want SSL Support and not using a reverse proxy
    #- 443:443
     - 5060:5060
@@ -17,7 +17,7 @@ d1-pbx:
     - /opt/pbx/logs:/var/log
     - /opt/pbx/data/www:/var/www/html
    ### Only Enable this option below if you set DB_EMBEDDED=TRUE
-    - /opt/pbx/db:/var/lib/mysql
+   # - /opt/pbx/db:/var/lib/mysql
    ### You can drop custom files overtop of the image if you have made modifications to modules/css/whatever - Use with care
    #- ./assets/custom:/assets/custom
 
@@ -37,13 +37,13 @@ d1-pbx:
     - RTP_FINISH=18100
     
    ## Use for External MySQL Server
-    - DB_EMBEDDED=TRUE
+    - DB_EMBEDDED=FALSE
     ### These are only necessary if DB_EMBEDDED=FALSE
-   # - DB_HOST=freepbx-db
-   # - DB_PORT=3306
-   # - DB_NAME=asterisk
-   # - DB_USER=asterisk
-   # - DB_PASS=asteriskpass
+    - DB_HOST=pbx-db
+    - DB_PORT=3306
+    - DB_NAME=asterisk
+    - DB_USER=asterisk
+    - DB_PASS=asteriskpass
     - ENABLE_FAIL2BAN=FALSE
    ### If you are using TLS Support for Apache to listen on 443 in the container drop them in /certs and set these:
    #- TLS_CERT=cert.pem
@@ -57,29 +57,29 @@ d1-pbx:
   cap_add:
     - NET_ADMIN
   privileged: true
-freepbx-db:
-  container_name: freepbx-db
+pbx-db:
+  container_name: pbx-db
   image: tiredofit/mariadb
   restart: always
   volumes:
     - /opt/pbx/db:/var/lib/mysql
   environment:
-    - MYSQL_ROOT_PASSWORD=password
+    - MYSQL_ROOT_PASSWORD=asterisk
     - MYSQL_DATABASE=asterisk
     - MYSQL_USER=asterisk
     - MYSQL_PASSWORD=asteriskpass
   net: host
   
 freepbx-db-backup:
-  container_name: freepbx-db-backup
+  container_name: pbx-db-backup
   image: tiredofit/db-backup
   links:
-   - freepbx-db
+   - pbx-db
   volumes:
-    - ./dbbackup:/backup
+    - /opt/pbx/dbbackup:/backup
   environment:
-    - ZABBIX_HOSTNAME=freepbx-db-backup
-    - DB_HOST=freepbx-db
+    - ZABBIX_HOSTNAME=pbx-db-backup
+    - DB_HOST=pbx-db
     - DB_TYPE=mariadb
     - DB_NAME=asterisk
     - DB_USER=asterisk
