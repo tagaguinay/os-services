@@ -1,0 +1,12 @@
+d1_mydb:
+  container_name: pbx-db
+  image: tiredofit/mariadb
+  restart: always
+  volumes:
+    - /opt/pbx/db:/var/lib/mysql
+  environment:
+    - MYSQL_ROOT_PASSWORD=asterisk
+    - MYSQL_DATABASE=asterisk
+    - MYSQL_USER=asterisk
+    - MYSQL_PASSWORD=asteriskpass
+  net: pbx-net
