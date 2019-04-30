@@ -1,5 +1,5 @@
 d1_mydb:
-  container_name: pbx-db
+  container_name: d1_mydb
   image: tiredofit/mariadb
   restart: always
   volumes:
