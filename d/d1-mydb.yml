@@ -9,4 +9,4 @@ d1-mydb:
     - MYSQL_DATABASE=asterisk
     - MYSQL_USER=asterisk
     - MYSQL_PASSWORD=asteriskpass
-  net: pbx-net
+  net: host
