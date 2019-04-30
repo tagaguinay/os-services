@@ -3,7 +3,7 @@ d1-pbx:
   image: tiredofit/freepbx
   depends_on:
     - pbx-db
-  net: pbx-net
+  net: host
   ports:
    #### If you aren't using a reverse proxy
     - 80:80
@@ -55,7 +55,6 @@ d1-pbx:
   restart: always
   #networks:
   #  - proxy-tier
-  net: pbx-net
   ### These final lines are for Fail2ban. If you don't want, comment and also add ENABLE_FAIL2BAN=FALSE to your environment
   cap_add:
     - NET_ADMIN
@@ -78,5 +77,5 @@ freepbx-db-backup:
     - DB_CLEANUP_TIME=8640
     - COMPRESSION=BZ
     - MD5=TRUE
-  net: pbx-net
+  net: host
   restart: always
