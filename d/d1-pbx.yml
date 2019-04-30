@@ -1,4 +1,4 @@
-freepbx-app:
+d1-pbx:
   container_name: freepbx-app
   image: tiredofit/freepbx
   ports:
