@@ -37,6 +37,7 @@ services:
 - d1-lb
 - d1-rancher
 - d1-ztweb
+- d1-pbx
 consoles:
 - alpine
 - centos
