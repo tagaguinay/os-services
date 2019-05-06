@@ -39,7 +39,8 @@ services:
 - d1-ztweb
 - d1-pbx
 - d1-mydb
-- k3s
+- k3s-server
+- k3s-agent
 consoles:
 - alpine
 - centos
