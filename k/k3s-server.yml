@@ -7,15 +7,3 @@ rancher:
       volumes:
         - /etc/rancher/k3s:/etc/rancher/k3s
         - /var/lib/rancher/k3s:/var/lib/rancher/k3s:rshared
-    k3s-agent:
-      image: ibuildthecloud/k3s:f90cbed-dirty-amd64
-      command: agent --docker -s https://localhost:6443 --token-file /var/lib/rancher/k3s/server/node-token
-      volumes:
-        - /var/lib/rancher/k3s:/var/lib/rancher/k3s:rshared
-        - /var/lib/docker:/var/lib/docker:rshared
-        - /var/run:/var/run
-        - /run:/run
-      privileged: true
-      net: host
-      pid: host
-      ipc: host
