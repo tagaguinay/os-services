@@ -1,9 +1,7 @@
-rancher:
-  services:
-    k3s-server:
-      image: ibuildthecloud/k3s:f90cbed-dirty-amd64
-      command: server --disable-agent
-      net: host
-      volumes:
-        - /etc/rancher/k3s:/etc/rancher/k3s
-        - /var/lib/rancher/k3s:/var/lib/rancher/k3s:rshared
+k3s-server:
+  image: ibuildthecloud/k3s:f90cbed-dirty-amd64
+  command: server --disable-agent
+  net: host
+  volumes:
+    - /etc/rancher/k3s:/etc/rancher/k3s
+    - /var/lib/rancher/k3s:/var/lib/rancher/k3s:rshared
