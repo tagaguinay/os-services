@@ -41,6 +41,7 @@ services:
 - d1-mydb
 - k3s-server
 - k3s-agent
+- d1-fr
 consoles:
 - alpine
 - centos
