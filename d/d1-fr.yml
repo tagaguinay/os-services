@@ -1,0 +1,10 @@
+d1-fr:
+  image: debian-stretch-mono:latest
+  volumes:
+    - ./.x11-unixsoc:/tmp/.X11-unix
+  ports:
+    - "8085:80"            
+d1-xorg:
+  image: debian-stretch-x11dummy:latest
+  volumes:
+    - ./.x11-unixsoc:/tmp/.X11-unix
